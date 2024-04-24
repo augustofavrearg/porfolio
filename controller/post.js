@@ -41,3 +41,53 @@ export const remove = async (req, res) => {
         return res.status(500).json({ message: 'Failed to delete post.' });
     }
 }
+
+export const list = async (req, res) => {
+    try {
+        const posts = await Post.findAll(); // Busca todos los posts en la base de datos
+
+        res.status(200).json({ posts });
+    } catch (error) {
+        console.error('Error fetching posts:', error);
+        res.status(500).json({ message: 'Failed to fetch posts.' });
+    }
+}
+
+export const read = async (req, res) => {
+    const postId = req.params.id;
+
+    try {
+        const post = await Post.findByPk(postId); // Busca un post por su ID
+
+        if (post) {
+            return res.status(200).json({ post });
+        } else {
+            return res.status(404).json({ message: 'Post not found.' });
+        }
+    } catch (error) {
+        console.error('Error fetching post:', error);
+        return res.status(500).json({ message: 'Failed to fetch post.' });
+    }
+}
+
+export const update = async (req, res) => {
+    const postId = req.params.id;
+    const { title, canonical_url, description, label, promo_items } = req.body;
+
+    try {
+        const [updatedRows] = await Post.update(
+            { title, canonical_url, description, label, promo_items },
+            { where: { id: postId } }
+        );
+
+        if (updatedRows > 0) {
+            const updatedPost = await Post.findByPk(postId);
+            return res.status(200).json({ message: 'Post updated successfully.', post: updatedPost });
+        } else {
+            return res.status(404).json({ message: 'No post found with the provided ID.' });
+        }
+    } catch (error) {
+        console.error('Error updating post:', error);
+        return res.status(500).json({ message: 'Failed to update post.' });
+    }
+}
