@@ -1,8 +1,12 @@
 import { Router } from "express";
-import { create } from "../controller/cv.js";
+import { create, remove, update, list, read } from "../controller/cv.js";
 
-const routerProject = Router();
+const routerCv = Router();
 
-routerProject.post("/createProject", create)
+routerCv.post("/createCv", create);
+routerCv.post("/deleteCv/:id", remove); // Utilizamos el método DELETE y pasamos el ID del post como parámetro en la URL
+routerCv.post("/updateCv/:id", update)
+routerCv.get("/listCv", list)
+routerCv.get("/getCv/:id", read); // Obtener un post individual por su ID
 
-export default routerProject
+export default routerCv

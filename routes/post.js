@@ -5,8 +5,9 @@ const routerPost = Router();
 
 routerPost.post("/createPost", create);
 routerPost.post("/deletePost/:id", remove); // Utilizamos el método DELETE y pasamos el ID del post como parámetro en la URL
+routerPost.post("/updatePost/:id", update)
 routerPost.get("/listPost", list)
 routerPost.get("/getPost/:id", read); // Obtener un post individual por su ID
-routerPost.post("/updatePost/:id", update)
+
 
 export default routerPost;
