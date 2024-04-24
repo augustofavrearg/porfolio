@@ -8,11 +8,6 @@ const Post = sequelize.define('Post', {
     allowNull: false,
     primaryKey: true
   },
-  canonical_url: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true
-  },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -23,11 +18,7 @@ const Post = sequelize.define('Post', {
     allowNull: false
   },
   label: {
-    type: DataTypes.JSONB, // Puedes cambiar el tipo de datos según tus necesidades
-    allowNull: false
-  },
-  promo_items: {
-    type: DataTypes.JSONB, // Puedes cambiar el tipo de datos según tus necesidades
+    type: DataTypes.TEXT, // Puedes cambiar el tipo de datos según tus necesidades
     allowNull: false
   }
 });
