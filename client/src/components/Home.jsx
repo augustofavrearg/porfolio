@@ -1,8 +1,26 @@
 import React from 'react';
 import Input from './ui/Input';
 import Label from './ui/Label';
+import Button from './ui/Button';
+import Title from './ui/Title';
+import Subtitle from './ui/Subtitle';
+import ToggleSwitch from './ui/ToogleSwitch';
+import { useState } from 'react';
+
+
+
 
 const Home = () => {
+
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  const handleToggle = (value) => {
+    setIsEnabled(value);
+  };
+
+
+
+
   return (
     <div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -16,6 +34,13 @@ const Home = () => {
             Sign in to your account
           </h2>
         </div>
+        <div >
+      <Title text="Título principal"  />
+      <Subtitle text = "Este es el subtitel"/>
+      <ToggleSwitch defaultChecked={isEnabled} onChange={handleToggle} />
+      <p>El interruptor está {isEnabled ? 'activado' : 'desactivado'}</p>
+
+    </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
@@ -42,12 +67,7 @@ const Home = () => {
             </div>
 
             <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign in
-              </button>
+              <Button type="submit">Sign in</Button>
             </div>
           </form>
 
