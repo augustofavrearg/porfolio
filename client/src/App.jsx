@@ -4,7 +4,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
-
+import Home from './components/Home';
 
 const App = () => {
   return (
@@ -12,10 +12,7 @@ const App = () => {
       <Navbar />
       <main>
         <Sidebar />
-        <section>
-          <h1>Contenido Principal</h1>
-          <p>Bienvenido a mi aplicación</p>
-        </section>
+        <Home/>
       </main>
       <Footer />
     </div>
