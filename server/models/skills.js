@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../dbconnection.js';
 
-const Skill = sequelize.define('DeveloperSkill', {
+const Skill = sequelize.define('Skill', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,

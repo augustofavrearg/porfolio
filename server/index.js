@@ -8,7 +8,7 @@ sequelize.sync({ force: true })
 
     const port = 80;
     app.listen(port, () => {
-      console.log(`Servidor escuchando en http://localhost:${port}`);
+      console.log(`Servidor escuchando en http://127.0.0.1:${port}`);
     });
   })
   .catch((error) => {

@@ -6,6 +6,7 @@ import Title from './ui/Title';
 import Subtitle from './ui/Subtitle';
 import ToggleSwitch from './ui/ToogleSwitch';
 import { useState } from 'react';
+import PostForm from './ui/PostForm';
 
 
 
@@ -23,6 +24,9 @@ const Home = () => {
 
   return (
     <div>
+      <div>
+          <PostForm/>
+      </div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
@@ -34,13 +38,14 @@ const Home = () => {
             Sign in to your account
           </h2>
         </div>
+        
         <div >
-      <Title text="Título principal"  />
-      <Subtitle text = "Este es el subtitel"/>
-      <ToggleSwitch defaultChecked={isEnabled} onChange={handleToggle} />
-      <p>El interruptor está {isEnabled ? 'activado' : 'desactivado'}</p>
+          <Title text="Título principal"  />
+          <Subtitle text = "Este es el subtitel"/>
+          <ToggleSwitch defaultChecked={isEnabled} onChange={handleToggle} />
+          <p>El interruptor está {isEnabled ? 'activado' : 'desactivado'}</p>
 
-    </div>
+        </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" action="#" method="POST">
