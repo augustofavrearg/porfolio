@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../dbconnection.js';
 
-const CV = sequelize.define('CV', {
+const Cv = sequelize.define('Cv', {
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -23,4 +23,4 @@ const CV = sequelize.define('CV', {
   }
 });
 
-export default CV;
+export default Cv;

@@ -1,9 +1,9 @@
-import CV from "../models/cv.js";
+import Cv from "../models/cv.js";
 // Controlador para crear un nuevo CV
 export const create = async (req, res) => {
     const { name, cvPath } = req.body;
     try {
-        const newCV = await CV.create({
+        const newCV = await Cv.create({
             name,
             cvPath
         });
@@ -17,7 +17,7 @@ export const create = async (req, res) => {
 // Controlador para obtener todos los CV
 export const list = async (req, res) => {
     try {
-        const cvs = await CV.findAll();
+        const cvs = await Cv.findAll();
         res.status(200).json(cvs);
     } catch (error) {
         console.error('Error getting all CVs:', error);
@@ -29,7 +29,7 @@ export const list = async (req, res) => {
 export const read = async (req, res) => {
     const { id } = req.params;
     try {
-        const cv = await CV.findByPk(id);
+        const cv = await Cv.findByPk(id);
         if (cv) {
             res.status(200).json(cv);
         } else {
@@ -45,11 +45,11 @@ export const read = async (req, res) => {
 export const update = async (req, res) => {
     const { id } = req.params;
     try {
-        const [updated] = await CV.update(req.body, {
+        const [updated] = await Cv.update(req.body, {
             where: { id }
         });
         if (updated) {
-            const updatedCV = await CV.findByPk(id);
+            const updatedCV = await Cv.findByPk(id);
             res.status(200).json(updatedCV);
         } else {
             res.status(404).json({ error: 'CV not found' });
@@ -64,7 +64,7 @@ export const update = async (req, res) => {
 export const remove = async (req, res) => {
     const { id } = req.params;
     try {
-        const deleted = await CV.destroy({
+        const deleted = await Cv.destroy({
             where: { id }
         });
         if (deleted) {
