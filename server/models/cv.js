@@ -18,7 +18,7 @@ const Cv = sequelize.define('Cv', {
     defaultValue: DataTypes.NOW
   },
   cvPath: {
-    type: DataTypes.STRING,
+    type: DataTypes.BLOB, // Cambiar el tipo de datos a DataTypes.BLOB
     allowNull: false
   }
 });

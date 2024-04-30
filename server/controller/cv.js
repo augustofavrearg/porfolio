@@ -1,7 +1,23 @@
-import Cv from "../models/cv.js";
+// Importa multer y otros módulos necesarios
+import multer from 'multer';
+import Cv from '../models/cv.js';
+
+// Configura el middleware multer
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/'); // Define la carpeta de destino para guardar los archivos
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname); // Utiliza el nombre original del archivo como nombre de archivo en el servidor
+    }
+});
+
+export const upload = multer({ storage: storage });
+
 // Controlador para crear un nuevo CV
 export const create = async (req, res) => {
-    const { name, cvPath } = req.body;
+    const { name } = req.body;
+    const cvPath = req.file.path; // Obtener la ruta del archivo en el servidor
     try {
         const newCV = await Cv.create({
             name,
@@ -13,7 +29,6 @@ export const create = async (req, res) => {
         res.status(500).json({ error: 'Failed to create new CV' });
     }
 };
-
 // Controlador para obtener todos los CV
 export const list = async (req, res) => {
     try {
