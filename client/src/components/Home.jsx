@@ -6,7 +6,10 @@ import Title from './ui/Title';
 import Subtitle from './ui/Subtitle';
 import ToggleSwitch from './ui/ToogleSwitch';
 import { useState } from 'react';
-import PostForm from './ui/PostForm';
+import PostForm from './forms/PostForm';
+import ProjectForm from './forms/ProjectForm';
+import SkillForm from './forms/SkillForm';
+import CvForm from './forms/CvForm';
 
 
 
@@ -19,13 +22,19 @@ const Home = () => {
     setIsEnabled(value);
   };
 
-
-
-
   return (
     <div>
       <div>
           <PostForm/>
+      </div>
+      <div>
+          <CvForm/>
+      </div>
+      <div>
+          <ProjectForm/>
+      </div>
+      <div>
+          <SkillForm/>
       </div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">

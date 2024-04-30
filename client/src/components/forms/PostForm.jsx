@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios'; // Asegúrate de importar axios si aún no lo has hecho
 import { toast } from 'react-toastify'; // Asegúrate de importar react-toastify si aún no lo has hecho
-import Title from './Title';
-import Label from './Label';
-import Input from './Input';
-import TextArea from './TextArea';
-import Button from './Button';
+import Title from '../ui/Title';
+import Label from '../ui/Label';
+import Input from '../ui/Input';
+import TextArea from '../ui/TextArea';
+import Button from '../ui/Button';
 
 const API_URL_BASE = 'http://127.0.0.1:80'; // Ajusta la URL base de tu API si es diferente
 
